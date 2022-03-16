@@ -30,6 +30,8 @@ module Lecture1
     , strSum
     , lowerAndGreater
     ) where
+import GHC.Base (minInt)
+import Data.List (sort)
 
 -- VVV If you need to import libraries, do it after this line ... VVV
 
@@ -39,6 +41,7 @@ module Lecture1
 its behaviour, possible types for the function arguments and write the
 type signature explicitly.
 -}
+makeSnippet :: Int -> [Char] -> [Char]
 makeSnippet limit text = take limit ("Description: " ++ text) ++ "..."
 
 {- | Implement a function that takes two numbers and finds sum of
@@ -54,7 +57,8 @@ Explanation: @sumOfSquares 3 4@ should be equal to @9 + 16@ and this
 is 25.
 -}
 -- DON'T FORGET TO SPECIFY THE TYPE IN HERE
-sumOfSquares x y = error "TODO!"
+sumOfSquares :: Int -> Int -> Int
+sumOfSquares x y = (x ^ 2) + (y ^ 2)
 
 {- | Implement a function that returns the last digit of a given number.
 
@@ -67,7 +71,8 @@ sumOfSquares x y = error "TODO!"
 
 -}
 -- DON'T FORGET TO SPECIFY THE TYPE IN HERE
-lastDigit n = error "lastDigit: Not implemented!"
+lastDigit :: Int -> Int
+lastDigit n = if n > 0 then mod n 10 else (-1) * mod n (-10)
 
 {- | Write a function that takes three numbers and returns the
 difference between the biggest number and the smallest one.
@@ -81,7 +86,10 @@ and 1 is the smallest, and 7 - 1 = 6.
 Try to use local variables (either let-in or where) to implement this
 function.
 -}
-minmax x y z = error "TODO"
+minmax :: Int -> Int -> Int -> Int
+minmax x y z =
+        maxN - minN
+    where x > y && x > z -> minN = x
 
 {- | Implement a function that takes a string, start and end positions
 and returns a substring of a given string from the start position to
